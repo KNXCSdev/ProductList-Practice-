@@ -51,7 +51,12 @@ body {
 
 .primary-heading {
   font-size: 3.2rem;
-  margin-bottom: 4rem;
+  margin-bottom: 3.2rem;
+}
+
+.secondary-heading {
+  color: var(--red);
+  font-size: 2rem;
 }
 
 .btn {
@@ -59,12 +64,21 @@ body {
   bottom: 60%;
   left: 50%;
   transform: translate(-50%, -60%);
-  padding: 1.4rem 3.2rem;
+  padding: 1.2rem 2rem;
   width: 60%;
   border-radius: 100px;
   font-weight: 600;
   border: 1px solid var(--red);
   background-color: var(--Rose50);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.btn-cart {
+  width: 2.1rem;
+  height: 2.1rem;
 }
 
 img {
@@ -92,4 +106,12 @@ img {
 .deserts-block-price::before {
   font-size: 1.4rem;
   content: "$";
+}
+
+.cart {
+  background-color: var(--Rose50);
+  align-self: flex-start;
+  height: 45%;
+  border-radius: 10px;
+  padding: 2rem;
 }
