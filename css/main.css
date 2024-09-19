@@ -25,7 +25,6 @@ body {
   line-height: 1;
   font-weight: 400;
   background-color: var(--Rose100);
-  color: var(--Rose900);
 }
 
 .section-deserts {
@@ -61,11 +60,12 @@ body {
 
 .btn {
   position: absolute;
-  bottom: 60%;
+  bottom: 50%;
   left: 50%;
   transform: translate(-50%, -60%);
   padding: 1.2rem 2rem;
-  width: 60%;
+  width: 70%;
+  height: 100%;
   border-radius: 100px;
   font-weight: 600;
   border: 1px solid var(--red);
@@ -79,6 +79,17 @@ body {
 .btn-cart {
   width: 2.1rem;
   height: 2.1rem;
+}
+
+.clicked {
+  background-color: var(--red);
+  color: var(--Rose50);
+}
+.clicked .btn-cart {
+  display: none;
+}
+.borderchange {
+  border: 1px solid var(--red);
 }
 
 img {
