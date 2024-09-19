@@ -3,99 +3,113 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
 
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png" />
-    <link rel="stylesheet" href="main.css" />
-
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Text:ital,wght@0,300..700;1,300..700&display=swap"
+      rel="stylesheet"
+    />
     <title>Frontend Mentor | Product list with cart</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-    <style>
-      .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
   </head>
   <body>
     <section class="section-deserts">
-      <h1>Desserts</h1>
-      <div class="deserts container">
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Waffle</p>
+      <div class="container">
+        <div class="flex-all">
+          <div class="deserts">
+            <h1 class="primary-heading">Desserts</h1>
+            <div class="grid">
+              <div class="deserts-block">
+                <img src="assets/images/image-waffle-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Waffle</p>
+                  <p class="deserts-block-food">Waffle with Berries</p>
+                  <p class="deserts-block-price">6.50</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-creme-brulee-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Crème Brûlée</p>
+                  <p class="deserts-block-food">Vanilla Bean Crème Brûlée</p>
+                  <p class="deserts-block-price">7.00</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-macaron-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Macaron</p>
+                  <p class="deserts-block-food">Mix of Five Macaron</p>
+                  <p class="deserts-block-price">8.00</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-tiramisu-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Tiramisu</p>
+                  <p class="deserts-block-food">Classic Tiramisu</p>
+                  <p class="deserts-block-price">5.50</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-baklava-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Baklava</p>
+                  <p class="deserts-block-food">Pistachio Baklava</p>
+                  <p class="deserts-block-price">4.00</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-meringue-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Pie</p>
+                  <p class="deserts-block-food">Lemon Meringue Pie</p>
+                  <p class="deserts-block-price">5.00</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-cake-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Cake</p>
+                  <p class="deserts-block-food">Red Velvet Cake</p>
+                  <p class="deserts-block-price">4.50</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-brownie-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Brownie</p>
+                  <p class="deserts-block-food">Salted Caramel Brownie</p>
+                  <p class="deserts-block-price">4.50</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+              <div class="deserts-block">
+                <img src="assets/images/image-panna-cotta-desktop.jpg" alt="" />
+                <div class="deserts-block-caption">
+                  <p class="deserts-block-description">Panna Cotta</p>
+                  <p class="deserts-block-food">Vanilla Panna Cotta</p>
+                  <p class="deserts-block-price">6.50</p>
+                  <button class="btn">Add to Cart</button>
+                </div>
+              </div>
+            </div>
           </div>
-          with Berries Waffle 6.50 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Crème Brûlée</p>
+          <div class="cart">
+            <h2 class="secondary-heading">Your Cart (<!-- Quantity -->)</h2>
+            Your added items will appear here
           </div>
-          Vanilla Bean Crème Brûlée 7.00 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Macaron</p>
-          </div>
-          Mix of Five Macaron 8.00 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Tiramisu</p>
-          </div>
-          Classic Tiramisu 5.50 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Baklava</p>
-          </div>
-          Pistachio Baklava 4.00 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Pie</p>
-          </div>
-          Lemon Meringue Pie 5.00 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Cake</p>
-          </div>
-          Red Velvet Cake 4.50 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Brownie</p>
-          </div>
-          Salted Caramel Brownie 4.50 Add to Cart
-        </div>
-        <div class="deserts-block">
-          <img src="" alt="" />
-          <div class="deserts-block-caption">
-            <p class="deserts-block-description">Panna Cotta</p>
-          </div>
-          Vanilla Panna Cotta 6.50 Add to Cart
         </div>
       </div>
     </section>
-
-    Your Cart (<!-- Quantity -->) Your added items will appear here
-
-    <div class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. Coded
-      by <a href="#">Your Name Here</a>.
-    </div>
   </body>
 </html>
