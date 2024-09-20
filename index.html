@@ -31,10 +31,10 @@
                   <p class="deserts-block-food">Waffle with Berries</p>
                   <p class="deserts-block-price">6.50</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -45,10 +45,10 @@
                   <p class="deserts-block-food">Vanilla Bean Crème Brûlée</p>
                   <p class="deserts-block-price">7.00</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -59,10 +59,10 @@
                   <p class="deserts-block-food">Mix of Five Macaron</p>
                   <p class="deserts-block-price">8.00</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -73,10 +73,10 @@
                   <p class="deserts-block-food">Classic Tiramisu</p>
                   <p class="deserts-block-price">5.50</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -87,10 +87,10 @@
                   <p class="deserts-block-food">Pistachio Baklava</p>
                   <p class="deserts-block-price">4.00</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -101,10 +101,10 @@
                   <p class="deserts-block-food">Lemon Meringue Pie</p>
                   <p class="deserts-block-price">5.00</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -115,10 +115,10 @@
                   <p class="deserts-block-food">Red Velvet Cake</p>
                   <p class="deserts-block-price">4.50</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -129,10 +129,10 @@
                   <p class="deserts-block-food">Salted Caramel Brownie</p>
                   <p class="deserts-block-price">4.50</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
@@ -143,17 +143,27 @@
                   <p class="deserts-block-food">Vanilla Panna Cotta</p>
                   <p class="deserts-block-price">6.50</p>
                   <button class="btn">
-
+                    <img src="assets/images/icon-decrement-quantity.svg" alt="" class="dec" />
                     <img src="assets/images/icon-add-to-cart.svg" class="btn-cart" />
                     Add to Cart
-
+                    <img src="assets/images/icon-increment-quantity.svg" alt="" class="inc" />
                   </button>
                 </div>
               </div>
             </div>
           </div>
-          <div class="cart">
-            <h2 class="secondary-heading">Your Cart (<!-- Quantity -->)</h2>
+          <div class="cart-container">
+            <h2 class="secondary-heading">Your Cart (<span class="cart-count">0</span>)</h2>
+            <div class="cart-items">
+              <!-- Dynamically generated cart items will go here -->
+            </div>
+            <div class="cart-total">
+              <p>Order Total:</p>
+              <span class="total-amount">$0.00</span>
+            </div>
+            <button class="confirm-order">Confirm Order</button>
+            <div class="order-confirmation-container"></div>
+            <!-- Miejsce na blok "Zamówiono" -->
           </div>
         </div>
       </div>
