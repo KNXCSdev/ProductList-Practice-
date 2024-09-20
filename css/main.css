@@ -76,6 +76,9 @@ body {
   justify-content: center;
   gap: 1rem;
 }
+.btn:focus {
+  outline: none;
+}
 .btn-cart {
   width: 2.1rem;
   height: 2.1rem;
@@ -89,7 +92,12 @@ body {
   display: none;
 }
 .borderchange {
-  border: 1px solid var(--red);
+  box-shadow: 0 0 0 1px var(--red);
+}
+
+.btn,
+.borderchange {
+  transition: background-color 1s ease, box-shadow 0.3s ease;
 }
 
 img {
