@@ -63,7 +63,7 @@ body {
   bottom: 50%;
   left: 50%;
   transform: translate(-50%, -60%);
-  padding: 1.2rem 2rem;
+  padding: 1.2rem 1rem;
   width: 70%;
   height: 100%;
   border-radius: 100px;
@@ -84,6 +84,29 @@ body {
   height: 2.1rem;
 }
 
+.inc,
+.dec {
+  display: none;
+}
+
+.increment,
+.decrement {
+  height: 2rem;
+  width: 2rem;
+  border-radius: 100px;
+  border: 2px solid var(--Rose50);
+  border-spacing: 1rem;
+  display: inline-block;
+}
+
+.increment {
+  margin-left: 4rem;
+}
+
+.decrement {
+  margin-right: 4rem;
+}
+
 .clicked {
   background-color: var(--red);
   color: var(--Rose50);
@@ -91,6 +114,7 @@ body {
 .clicked .btn-cart {
   display: none;
 }
+
 .borderchange {
   box-shadow: 0 0 0 1px var(--red);
 }
@@ -127,10 +151,105 @@ img {
   content: "$";
 }
 
-.cart {
-  background-color: var(--Rose50);
-  align-self: flex-start;
+.cart-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
   height: 45%;
-  border-radius: 10px;
-  padding: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-items {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--Rose100);
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+}
+
+.item-quantity span {
+  margin: 0 10px;
+}
+
+.cart-total {
+  font-size: 1.2em;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.fix {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-left: 4%;
+  color: var(--Rose400);
+}
+
+.proce {
+  margin-left: 4%;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--Rose300);
+}
+
+.confirm-order {
+  width: 100%;
+  padding: 10px;
+  background-color: #ff6f43;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.total-amount {
+  font-size: 1.8rem;
+}
+
+.confirm-order:hover {
+  background-color: #ff8c6a;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 1.4rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.quant {
+  color: var(--red);
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.cart-items {
+  margin-top: 2.4rem;
+}
+
+.removee {
+  margin-left: auto;
+}
+
+.order-confirmation {
+  padding: 10px;
+  margin-top: 20px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
 }
