@@ -253,3 +253,35 @@ img {
   font-size: 18px;
   text-align: center;
 }
+
+@media only screen and (max-width: 60em) {
+  html {
+    font-size: 55%;
+  }
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .cart-container {
+    height: 30%;
+  }
+}
+@media only screen and (max-width: 40em) {
+  html {
+    font-size: 55%;
+  }
+  .container {
+    max-width: 60rem;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .cart-container {
+    height: 100%;
+  }
+  .flex-all {
+    grid-template-columns: 1fr;
+  }
+  .section-deserts {
+    padding: 0;
+  }
+}
