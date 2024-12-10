@@ -30,4 +30,215 @@ body {
   background-color: var(--Rose100);
 }
 
-//SECTION GENERALS
+.primary-heading {
+  grid-column: 1 / -1;
+  font-size: 4.8rem;
+  color: var(--Rose900);
+  margin-bottom: 3rem;
+}
+
+.secondary-heading {
+  font-size: 2.6rem;
+  color: var(--red);
+  margin-bottom: 3rem;
+}
+
+.tertiary-heading {
+  font-size: 1.6rem;
+  color: var(--Rose900);
+  margin-bottom: 1rem;
+}
+
+.btn {
+  border: none;
+  border-radius: 100px;
+  &__add {
+    position: absolute;
+    background-color: var(--Rose50);
+    width: 60%;
+    height: 5rem;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    border: 1px solid var(--red);
+    color: var(--Rose900);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    font-weight: 700;
+  }
+
+  &__delete {
+    border-radius: 50%;
+    border: 2px solid var(--Rose400);
+    width: 2rem;
+    height: 2rem;
+    background-color: transparent;
+    transition: all 0.3s;
+
+    &:hover {
+      border: 2px solid var(--Rose900);
+      cursor: pointer;
+
+      img {
+        transition: all 0.3s;
+        filter: invert(100%) sepia(100%) saturate(500%) hue-rotate(10deg); // Color change using filter
+      }
+    }
+  }
+
+  &__order {
+    width: 100%;
+    height: 5rem;
+    margin-top: auto;
+    background-color: var(--red);
+    color: var(--Rose50);
+    letter-spacing: 0.5px;
+    font-size: 1.6rem;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: var(--Rose500);
+      cursor: pointer;
+    }
+  }
+}
+
+.container {
+  max-width: 80%;
+  margin: 10rem auto;
+  &-grid {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.desserts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 5rem auto;
+  gap: 3rem;
+}
+
+.dessert {
+  &__img {
+    position: relative;
+    border-radius: 15px;
+    margin-bottom: 3.6rem;
+  }
+
+  &__clicked {
+    border-radius: 15px;
+    border: 2px solid var(--red);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.5rem;
+  }
+
+  &__description {
+    line-height: 1.6;
+  }
+
+  &__name {
+    color: var(--Rose500);
+    font-size: 1.5rem;
+  }
+
+  &__title {
+    font-size: 1.7rem;
+  }
+
+  &__dollar {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--red);
+  }
+}
+
+.cart {
+  background-color: var(--Rose50);
+  padding: 2rem;
+  border-radius: 15px;
+
+  &__empty {
+  }
+}
+
+.orders {
+  overflow-y: auto;
+  min-height: 40rem;
+  margin-bottom: 2rem;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--Rose100);
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+
+  &__prices {
+    display: flex;
+    gap: 1rem;
+    font-size: 1.4rem;
+  }
+
+  &--quantity {
+    color: var(--red);
+    font-weight: 700;
+  }
+
+  &--price-all {
+    color: var(--Rose400);
+  }
+
+  &--price {
+    color: var(--Rose400);
+    font-weight: 700;
+  }
+}
+
+.total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+  margin-top: auto;
+  &__text {
+    font-size: 1.6rem;
+    color: var(--Rose900);
+  }
+
+  &__cost {
+    font-size: 2.4rem;
+    font-weight: 700;
+  }
+}
+
+.delivery {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__carbon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    height: 5rem;
+    font-size: 1.3rem;
+    background-color: var(--Rose100);
+    border-radius: 15px;
+  }
+
+  &__styling {
+    font-weight: 600;
+  }
+}
