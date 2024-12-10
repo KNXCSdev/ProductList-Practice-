@@ -23,8 +23,12 @@
         <h1 class="primary-heading">Desserts</h1>
         <div class="dessert">
           <div class="dessert__img">
-            <img src="assets/images/image-waffle-desktop.jpg" alt="Waffle with berries" />
-            <button class="btn__add">
+            <img
+              src="assets/images/image-waffle-desktop.jpg"
+              class="dessert__image"
+              alt="Waffle with berries"
+            />
+            <button class="btn btn__add">
               <img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
               Add to Cart
             </button>
@@ -32,13 +36,17 @@
           <div class="dessert__description">
             <p class="dessert__name">Waffle</p>
             <h2 class="dessert__title">Waffle with Berries</h2>
-            <p class="dessert__dollar">$<span class="dessert__price">6.50</span></p>
+            <p class="dessert__dollar">$<span class="dessert--price">6.50</span></p>
           </div>
         </div>
         <div class="dessert">
           <div class="dessert__img">
-            <img src="assets/images/image-waffle-desktop.jpg" alt="Waffle with berries" />
-            <button class="btn__add">
+            <img
+              src="assets/images/image-waffle-desktop.jpg"
+              class="dessert__image dessert__clicked"
+              alt="Waffle with berries"
+            />
+            <button class="btn btn__add">
               <img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
               Add to Cart
             </button>
@@ -46,13 +54,17 @@
           <div class="dessert__description">
             <p class="dessert__name">Waffle</p>
             <h2 class="dessert__title">Waffle with Berries</h2>
-            <p class="dessert__dollar">$<span class="dessert__price">6.50</span></p>
+            <p class="dessert__dollar">$<span class="dessert--price">6.50</span></p>
           </div>
         </div>
         <div class="dessert">
           <div class="dessert__img">
-            <img src="assets/images/image-waffle-desktop.jpg" alt="Waffle with berries" />
-            <button class="btn__add">
+            <img
+              src="assets/images/image-waffle-desktop.jpg"
+              class="dessert__image"
+              alt="Waffle with berries"
+            />
+            <button class="btn btn__add">
               <img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
               Add to Cart
             </button>
@@ -60,26 +72,42 @@
           <div class="dessert__description">
             <p class="dessert__name">Waffle</p>
             <h2 class="dessert__title">Waffle with Berries</h2>
-            <p class="dessert__dollar">$<span class="dessert__price">6.50</span></p>
+            <p class="dessert__dollar">$<span class="dessert--price">6.50</span></p>
           </div>
         </div>
       </div>
+
       <div class="cart">
         <h2 class="secondary-heading">Your Cart(<span class="cart--quantity">7</span>)</h2>
         <div class="cart__order">
-          <img src="assets/images/illustration-empty-cart.svg" alt="Empty cart image" />
-          <p class="cart__empty">Your added items will appear here</p>
-          <!-- <div class="cart__info">
-            <h3 class="tertiary-heading">Classic Tiramisu</h3>
-            <p class="cart--order-quantity">1x</p>
-            <p class="cart--order-quantity">@ $5.50</p>
-            <p class="cart--order-quantity">$5.50</p>
+          <!-- <img src="assets/images/illustration-empty-cart.svg" alt="Empty cart image" />
+          <p class="cart__empty">Your added items will appear here</p> -->
+          <div class="orders">
+            <div class="info">
+              <div class="info__order">
+                <h3 class="tertiary-heading">Classic Tiramisu</h3>
+                <div class="info__prices">
+                  <p class="info--quantity">1x</p>
+                  <p class="info--price-all">@ $5.50</p>
+                  <p class="info--price">$5.50</p>
+                </div>
+              </div>
+              <button class="btn__delete">
+                <img src="assets/images/icon-remove-item.svg" alt="Remove item" />
+              </button>
+            </div>
           </div>
-          <div class="cart__delete">
-            <button class="btn__delete">
-              <img src="assets/images/icon-remove-item.svg" alt="Remove item" />
-            </button>
-          </div> -->
+          <div class="total">
+            <p class="total__text">Order Total</p>
+            <p class="total__cost">$46.50</p>
+          </div>
+          <div class="delivery">
+            <p class="delivery__carbon">
+              <img src="assets/images/icon-carbon-neutral.svg" alt="Carbon-neutral Delivery" />
+              This is a <b>carbon-neutral</b> delivery
+            </p>
+            <button class="btn btn__order">Confirm Order</button>
+          </div>
         </div>
       </div>
     </div>
