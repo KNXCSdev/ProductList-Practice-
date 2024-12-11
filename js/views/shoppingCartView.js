@@ -4,8 +4,35 @@ class ShoppingCartView extends View {
   _parentElement = document.querySelector(".orders");
   _summaryContainer = document.querySelector(".summary");
 
+  addHandlerDelete(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const clicked = +e.target.closest(".btn__delete")?.dataset.id;
+      if (!clicked) return;
+      handler(clicked);
+    });
+  }
+
+  updateAddToCartButtons(id) {
+    // Find the "Add to Cart" button associated with this product ID
+    const btnAddToCart = document.querySelector(`.btn__add[data-id="${id}"]`);
+    if (btnAddToCart) {
+      // Remove the btn__clicked class
+      btnAddToCart.classList.remove("btn__clicked");
+      // Reset button content
+      btnAddToCart.innerHTML = `
+        <img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
+        <span>Add to Cart</span>
+      `;
+    }
+  }
+
   generateOrder(data) {
     this._data = data;
+    console.log(this._data);
+    if (!this._data || this._data.length === 0) {
+      this._summaryContainer.classList.add("hidden");
+    } else this._summaryContainer.classList.remove("hidden");
+
     const totalCost = this._data.reduce((sum, item) => sum + item.quantity * item.price, 0);
     const markup = `
           <div class="total">
@@ -36,6 +63,7 @@ class ShoppingCartView extends View {
 
     document.querySelector(".orders").classList.remove("hidden");
     document.querySelector(".cart__none").classList.add("hidden");
+    document.querySelector(".cart--quantity").textContent = this._data.length;
     this._parentElement.innerHTML = "";
 
     return `
