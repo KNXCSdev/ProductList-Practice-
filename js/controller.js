@@ -1,4 +1,5 @@
 import * as model from "./model.js";
+import orderView from "./views/orderView.js";
 import productsView from "./views/productsView.js";
 import shoppingCartView from "./views/shoppingCartView.js";
 
@@ -43,11 +44,32 @@ function controlDelete(id) {
   shoppingCartView.updateAddToCartButtons(id);
 }
 
+function controlConfirmation() {
+  orderView.render(model.state.cart);
+}
+
+function controlShopping() {
+  model.deleteCart();
+
+  //RERENDER CART
+  shoppingCartView.render(model.state.cart);
+
+  //RERENDER BUTTON TO HIDE IT
+  shoppingCartView.generateOrder(model.state.cart);
+
+  shoppingCartView.updateAllButtons();
+
+  //Render OrderView because if not all deleted items from the cart Array will still be seen
+  orderView.render();
+}
+
 function init() {
   productsView.addHandlerRender(controlProducts);
   productsView.addHandlerClick(controlAddToCart);
   productsView.addHandlerQuantity(controlQuantity);
 
   shoppingCartView.addHandlerDelete(controlDelete);
+  orderView.addHandlerShowConfirmation(controlConfirmation);
+  orderView.addHandlerStartNewOrder(controlShopping);
 }
 init();

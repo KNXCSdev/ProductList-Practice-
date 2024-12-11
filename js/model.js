@@ -49,3 +49,7 @@ export function deleteItem(id) {
   state.cart = state.cart.filter((item) => item.id !== cartItem.id);
   console.log(state.cart);
 }
+
+export function deleteCart() {
+  state.cart = [];
+}
