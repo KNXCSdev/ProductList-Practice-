@@ -76,7 +76,7 @@ class ShoppingCartView extends View {
     document.querySelector(".orders").classList.remove("hidden");
     document.querySelector(".cart__none").classList.add("hidden");
     document.querySelector(".cart--quantity").textContent = this._data.length;
-    this._parentElement.innerHTML = "";
+    this._clear();
 
     return `
       ${this._data

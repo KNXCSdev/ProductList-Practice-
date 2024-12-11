@@ -1,6 +1,6 @@
 import View from "./view.js";
 
-class orderView extends View {
+class OrderView extends View {
   _parentElement = document.querySelector(".order__all");
   _cartElement = document.querySelector(".btn--new");
   _backgroundElement = document.querySelector(".background");
@@ -10,8 +10,8 @@ class orderView extends View {
     document.querySelector(".cart").addEventListener("click", (e) => {
       const clicked = e.target.classList.contains("btn__order");
       if (!clicked) return;
-      document.querySelector(".background").classList.remove("hidden");
-      document.querySelector(".confirmation").classList.remove("hidden");
+      this._backgroundElement.classList.remove("hidden");
+      this._confirmation.classList.remove("hidden");
       handler();
     });
   }
@@ -34,7 +34,7 @@ class orderView extends View {
   }
 
   _generateMarkup() {
-    if (!this._data) return (this._parentElement.innerHTML = "");
+    if (!this._data) return this._clear();
     const totalCost = this._data.reduce((sum, item) => sum + item.quantity * item.price, 0);
     document.querySelector(".order__price").textContent = `$${totalCost.toFixed(2)}`;
     return this._data
@@ -57,4 +57,4 @@ class orderView extends View {
   }
 }
 
-export default new orderView();
+export default new OrderView();

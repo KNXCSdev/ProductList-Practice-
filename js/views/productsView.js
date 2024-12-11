@@ -1,6 +1,6 @@
 import View from "./view.js";
 
-class productView extends View {
+class ProductView extends View {
   _parentElement = document.querySelector(".desserts");
 
   addHandlerRender(handler) {
@@ -96,4 +96,4 @@ class productView extends View {
   }
 }
 
-export default new productView();
+export default new ProductView();
