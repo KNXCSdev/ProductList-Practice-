@@ -8,22 +8,17 @@ async function controlProducts() {
 }
 
 function controlAddToCart(id) {
-  const product = model.state.products.find((prod) => prod.id === id);
+  model.addToCart(id); //id will be read from handler() in productsView
 
-  if (!product) return;
-
-  const cartItem = model.state.cart.find((item) => item.id === id);
-
-  if (!cartItem) {
-    model.state.cart.push({ ...product, quantity: 1 });
-  } else {
-    cartItem.quantity++;
-  }
-
+  //Generate Orders
   shoppingCartView.render(model.state.cart);
+
+  //Generate Order Total,Confirm Order Button
+  shoppingCartView.generateOrder(model.state.cart);
 }
 
 function init() {
   productsView.addHandlerRender(controlProducts);
+  productsView.addHandlerClick(controlAddToCart);
 }
 init();

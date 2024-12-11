@@ -7,6 +7,15 @@ class productView extends View {
     ["load"].forEach((ev) => window.addEventListener(ev, handler));
   }
 
+  addHandlerClick(handler) {
+    this._parentElement.addEventListener("click", function (e) {
+      const btn = e.target.closest(".btn__add");
+      if (!btn) return;
+      const dataId = +btn.dataset.id;
+      handler(dataId);
+    });
+  }
+
   _generateMarkup() {
     console.log(this._data);
     return this._data

@@ -14,9 +14,19 @@ export async function shopData() {
 }
 
 export function addToCart(id) {
+  // Find the product in the products array
   const product = state.products.find((prod) => prod.id === id);
-  if (product) {
-    model.state.cart.push({ ...product, quantity: 1 });
-    console.log(model.state.cart);
+  if (!product) return;
+
+  // Check if the product is already in the cart
+  const cartItem = state.cart.find((item) => item.id === id);
+
+  if (cartItem) {
+    // If the product is already in the cart, increase the quantity
+    cartItem.quantity += 1;
+  } else {
+    // Otherwise, add it to the cart with quantity 1
+    state.cart.push({ ...product, quantity: 1 });
   }
+  console.log(state.cart);
 }

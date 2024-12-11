@@ -180,7 +180,7 @@ body {
 
 .orders {
   overflow-y: auto;
-  min-height: 40rem;
+  height: 40rem;
   margin-bottom: 2rem;
 }
 
@@ -242,4 +242,8 @@ body {
 }
 .delivery__styling {
   font-weight: 600;
+}
+
+.hidden {
+  display: none;
 }
