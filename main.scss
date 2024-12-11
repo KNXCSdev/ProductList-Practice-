@@ -38,6 +38,7 @@ body {
 }
 
 .secondary-heading {
+  text-align: left;
   font-size: 2.6rem;
   color: var(--red);
   margin-bottom: 3rem;
@@ -52,6 +53,7 @@ body {
 .btn {
   border: none;
   border-radius: 100px;
+
   &__add {
     position: absolute;
     background-color: var(--Rose50);
@@ -60,13 +62,36 @@ body {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, 50%);
-    border: 1px solid var(--red);
+    border: 1px solid var(--Rose400);
     color: var(--Rose900);
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 1.5rem;
+    transition: all 0.3s;
+    padding: 0 2rem;
+
+    &:hover {
+      border: 1px solid var(--red);
+      color: var(--red);
+      cursor: pointer;
+    }
+
+    &.btn__clicked {
+      background-color: var(--red);
+      display: flex;
+      justify-content: space-between;
+      border: none;
+      color: var(--Rose50);
+
+      img {
+        border-radius: 50%;
+        height: 1.8rem;
+        width: 1.8rem;
+      }
+    }
   }
 
   &__delete {
@@ -165,8 +190,11 @@ body {
   background-color: var(--Rose50);
   padding: 2rem;
   border-radius: 15px;
-
+  align-self: start;
+  text-align: center;
   &__empty {
+    margin-top: 1rem;
+    font-size: 1.5rem;
   }
 }
 
