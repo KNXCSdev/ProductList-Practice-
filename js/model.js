@@ -3,7 +3,7 @@ export const state = {
   cart: [],
 };
 
-export async function shopData() {
+export async function loadProducts() {
   try {
     const data = await fetch("data.json");
     const res = await data.json();
@@ -28,13 +28,13 @@ export function addToCart(id) {
 
 export function incrementQuantity(id) {
   const cartItem = state.cart.find((item) => item.id === id);
-  console.log(cartItem);
+
   if (cartItem) cartItem.quantity += 1;
 }
 
 export function decrementQuantity(id) {
   const cartItem = state.cart.find((item) => item.id === id);
-  console.log(cartItem);
+
   if (cartItem && cartItem.quantity >= 2) {
     cartItem.quantity -= 1;
   } else {
@@ -47,7 +47,6 @@ export function decrementQuantity(id) {
 export function deleteItem(id) {
   const cartItem = state.cart.find((item) => item.id === id);
   state.cart = state.cart.filter((item) => item.id !== cartItem.id);
-  console.log(state.cart);
 }
 
 export function deleteCart() {

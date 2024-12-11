@@ -1,75 +1,71 @@
 import * as model from "./model.js";
-import orderView from "./views/orderView.js";
-import productsView from "./views/productsView.js";
-import shoppingCartView from "./views/shoppingCartView.js";
+import OrderView from "./views/orderView.js";
+import ProductsView from "./views/productsView.js";
+import ShoppingCartView from "./views/shoppingCartView.js";
 
 async function controlProducts() {
-  await model.shopData();
-  productsView.render(model.state.products);
+  await model.loadProducts();
+  ProductsView.render(model.state.products);
 }
 
 function controlAddToCart(id) {
   model.addToCart(id); //id will be read from handler() in productsView
 
   //Generate Orders
-  shoppingCartView.render(model.state.cart);
-
   //Generate Order Total,Confirm Order Button
-  shoppingCartView.generateOrder(model.state.cart);
+  updateCartViews();
 }
 
 function controlQuantity(id, action) {
-  if (action === "increment") {
-    model.incrementQuantity(id);
-  } else if (action === "decrement") {
-    model.decrementQuantity(id);
-  }
+  if (action === "increment") model.incrementQuantity(id);
+  else if (action === "decrement") model.decrementQuantity(id);
 
   // Update the view
-  shoppingCartView.render(model.state.cart);
-
-  shoppingCartView.generateOrder(model.state.cart);
+  updateCartViews();
 }
 
 function controlDelete(id) {
   model.deleteItem(id);
 
   // Generate Orders
-  shoppingCartView.render(model.state.cart);
 
   // Generate Order Total, Confirm Order Button
-  shoppingCartView.generateOrder(model.state.cart);
+  updateCartViews();
 
   // Update "Add to Cart" button for the deleted item
-  shoppingCartView.updateAddToCartButtons(id);
+  ShoppingCartView.updateAddToCartButtons(id);
 }
 
 function controlConfirmation() {
-  orderView.render(model.state.cart);
+  OrderView.render(model.state.cart);
 }
 
 function controlShopping() {
   model.deleteCart();
 
   //RERENDER CART
-  shoppingCartView.render(model.state.cart);
-
   //RERENDER BUTTON TO HIDE IT
-  shoppingCartView.generateOrder(model.state.cart);
+  updateCartViews();
 
-  shoppingCartView.updateAllButtons();
+  ShoppingCartView.updateAllButtons();
 
   //Render OrderView because if not all deleted items from the cart Array will still be seen
-  orderView.render();
+  OrderView.render();
+}
+
+function updateCartViews() {
+  const cartState = model.state.cart; // Centralized data source
+  ShoppingCartView.render(cartState); // Render updated cart
+  ShoppingCartView.generateOrder(cartState); // Render totals and buttons
 }
 
 function init() {
-  productsView.addHandlerRender(controlProducts);
-  productsView.addHandlerClick(controlAddToCart);
-  productsView.addHandlerQuantity(controlQuantity);
+  ProductsView.addHandlerRender(controlProducts);
+  ProductsView.addHandlerClick(controlAddToCart);
+  ProductsView.addHandlerQuantity(controlQuantity);
 
-  shoppingCartView.addHandlerDelete(controlDelete);
-  orderView.addHandlerShowConfirmation(controlConfirmation);
-  orderView.addHandlerStartNewOrder(controlShopping);
+  ShoppingCartView.addHandlerDelete(controlDelete);
+  OrderView.addHandlerShowConfirmation(controlConfirmation);
+  OrderView.addHandlerStartNewOrder(controlShopping);
 }
 init();
