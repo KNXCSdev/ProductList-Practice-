@@ -3,6 +3,7 @@ import View from "./view.js";
 class ShoppingCartView extends View {
   _parentElement = document.querySelector(".orders");
   _summaryContainer = document.querySelector(".summary");
+  _btnOrder = document.querySelector(".btn__order");
 
   addHandlerDelete(handler) {
     this._parentElement.addEventListener("click", function (e) {
@@ -24,6 +25,16 @@ class ShoppingCartView extends View {
         <span>Add to Cart</span>
       `;
     }
+  }
+
+  updateAllButtons() {
+    document.querySelectorAll(".btn__add").forEach((btn) => {
+      btn.classList.remove("btn__clicked");
+      btn.innerHTML = `
+      <img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
+      <span>Add to Cart</span>
+    `;
+    });
   }
 
   generateOrder(data) {
@@ -55,6 +66,7 @@ class ShoppingCartView extends View {
     if (!this._data || this._data.length === 0) {
       document.querySelector(".orders").classList.add("hidden");
       document.querySelector(".cart__none").classList.remove("hidden");
+      document.querySelector(".cart--quantity").textContent = 0;
       return `
         <img src="assets/images/illustration-empty-cart.svg" alt="Empty cart image" />
         <p class="cart__empty">Your added items will appear here</p>

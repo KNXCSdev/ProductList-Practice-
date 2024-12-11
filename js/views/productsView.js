@@ -41,7 +41,7 @@ class productView extends View {
         quantity++;
         btn.querySelector(".btn--quantity").textContent = quantity; // Update the displayed quantity
 
-        //  update the model
+        // Call handler to update the model
         handler(dataId, "increment");
       }
 
