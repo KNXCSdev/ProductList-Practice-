@@ -21,12 +21,31 @@ export function addToCart(id) {
   // Check if the product is already in the cart
   const cartItem = state.cart.find((item) => item.id === id);
 
-  if (cartItem) {
-    // If the product is already in the cart, increase the quantity
-    cartItem.quantity += 1;
+  if (cartItem) return;
+  // Otherwise, add it to the cart with quantity 1
+  else state.cart.push({ ...product, quantity: 1 });
+}
+
+export function incrementQuantity(id) {
+  const cartItem = state.cart.find((item) => item.id === id);
+  console.log(cartItem);
+  if (cartItem) cartItem.quantity += 1;
+}
+
+export function decrementQuantity(id) {
+  const cartItem = state.cart.find((item) => item.id === id);
+  console.log(cartItem);
+  if (cartItem && cartItem.quantity >= 2) {
+    cartItem.quantity -= 1;
   } else {
-    // Otherwise, add it to the cart with quantity 1
-    state.cart.push({ ...product, quantity: 1 });
+    // Remove item from cart if quantity reaches 0
+
+    state.cart = state.cart.filter((item) => item.id !== id);
   }
+}
+
+export function deleteItem(id) {
+  const cartItem = state.cart.find((item) => item.id === id);
+  state.cart = state.cart.filter((item) => item.id !== cartItem.id);
   console.log(state.cart);
 }

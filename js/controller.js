@@ -17,8 +17,37 @@ function controlAddToCart(id) {
   shoppingCartView.generateOrder(model.state.cart);
 }
 
+function controlQuantity(id, action) {
+  if (action === "increment") {
+    model.incrementQuantity(id);
+  } else if (action === "decrement") {
+    model.decrementQuantity(id);
+  }
+
+  // Update the view
+  shoppingCartView.render(model.state.cart);
+
+  shoppingCartView.generateOrder(model.state.cart);
+}
+
+function controlDelete(id) {
+  model.deleteItem(id);
+
+  // Generate Orders
+  shoppingCartView.render(model.state.cart);
+
+  // Generate Order Total, Confirm Order Button
+  shoppingCartView.generateOrder(model.state.cart);
+
+  // Update "Add to Cart" button for the deleted item
+  shoppingCartView.updateAddToCartButtons(id);
+}
+
 function init() {
   productsView.addHandlerRender(controlProducts);
   productsView.addHandlerClick(controlAddToCart);
+  productsView.addHandlerQuantity(controlQuantity);
+
+  shoppingCartView.addHandlerDelete(controlDelete);
 }
 init();
