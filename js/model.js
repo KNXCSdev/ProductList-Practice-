@@ -24,12 +24,14 @@ export function addToCart(id) {
   if (cartItem) return;
   // Otherwise, add it to the cart with quantity 1
   else state.cart.push({ ...product, quantity: 1 });
+  setLocalStorage();
 }
 
 export function incrementQuantity(id) {
   const cartItem = state.cart.find((item) => item.id === id);
 
   if (cartItem) cartItem.quantity += 1;
+  setLocalStorage();
 }
 
 export function decrementQuantity(id) {
@@ -42,13 +44,28 @@ export function decrementQuantity(id) {
 
     state.cart = state.cart.filter((item) => item.id !== id);
   }
+  setLocalStorage();
 }
 
 export function deleteItem(id) {
   const cartItem = state.cart.find((item) => item.id === id);
   state.cart = state.cart.filter((item) => item.id !== cartItem.id);
+  setLocalStorage();
 }
 
 export function deleteCart() {
   state.cart = [];
+  setLocalStorage();
 }
+
+function setLocalStorage() {
+  localStorage.setItem("cart", JSON.stringify(state.cart));
+}
+
+function getLocalStorage() {
+  const storage = localStorage.getItem("cart");
+  if (storage) state.cart = JSON.parse(storage);
+  console.log(state.cart);
+}
+
+getLocalStorage();
