@@ -7,6 +7,20 @@ class ProductView extends View {
     ["load"].forEach((ev) => window.addEventListener(ev, handler));
   }
 
+  restoreButtonStates(cartData) {
+    cartData.forEach((cartItem) => {
+      const btn = this._parentElement.querySelector(`.btn__add[data-id="${cartItem.id}"]`);
+      if (btn) {
+        btn.innerHTML = `
+          <img src="assets/images/icon-decrement-quantity.svg" alt="Decrement quantity" class='btn--decrement' data-click='0'/>
+          <span class="btn--quantity">${cartItem.quantity}</span>
+          <img src="assets/images/icon-increment-quantity.svg" alt="Increment quantity" class='btn--increment' data-click='0'/> 
+        `;
+        btn.classList.add("btn__clicked");
+      }
+    });
+  }
+
   addHandlerClick(handler) {
     this._parentElement.addEventListener("click", (e) => {
       // Check for the Add to Cart button click

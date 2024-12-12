@@ -7,9 +7,9 @@ async function controlProducts() {
   await model.loadProducts();
   ProductsView.render(model.state.products);
 
-  updateCartViews();
+  ProductsView.restoreButtonStates(model.state.cart);
 
-  ShoppingCartView.updateAddToCartButtons();
+  updateCartViews();
 }
 
 function controlAddToCart(id) {
