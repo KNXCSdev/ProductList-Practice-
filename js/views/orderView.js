@@ -34,14 +34,16 @@ class OrderView extends View {
   }
 
   _generateMarkup() {
-    if (!this._data) return this._clear();
+    if (!this._data || this._data.length === undefined) return this._clear();
+    console.log(this._data.length);
     const totalCost = this._data.reduce((sum, item) => sum + item.quantity * item.price, 0);
     document.querySelector(".order__price").textContent = `$${totalCost.toFixed(2)}`;
+
     return this._data
       .map(
         (data) => `
              <div class="order__item">
-             <img src="${data.image.desktop}" alt="${data.name}" />
+             <img src="${data.image.thumbnail}" alt="${data.name}" />
              <div class="order__info">
                <h4 class="order__heading">${data.name}</h4>
                <div class="order__quantity">

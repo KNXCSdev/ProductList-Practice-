@@ -6,6 +6,10 @@ import ShoppingCartView from "./views/shoppingCartView.js";
 async function controlProducts() {
   await model.loadProducts();
   ProductsView.render(model.state.products);
+
+  updateCartViews();
+
+  ShoppingCartView.updateAddToCartButtons();
 }
 
 function controlAddToCart(id) {

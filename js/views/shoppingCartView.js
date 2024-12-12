@@ -4,6 +4,11 @@ class ShoppingCartView extends View {
   _parentElement = document.querySelector(".orders");
   _summaryContainer = document.querySelector(".summary");
   _btnOrder = document.querySelector(".btn__order");
+  _orders = document.querySelector(".orders");
+  _cartNone = document.querySelector(".cart__none");
+  _cartQuantity = document.querySelector(".cart--quantity");
+  _addToCartHTML = `<img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
+        <span>Add to Cart</span>`;
 
   addHandlerDelete(handler) {
     this._parentElement.addEventListener("click", function (e) {
@@ -18,22 +23,17 @@ class ShoppingCartView extends View {
     const btnAddToCart = document.querySelector(`.btn__add[data-id="${id}"]`);
     if (btnAddToCart) {
       // Remove the btn__clicked class
+
       btnAddToCart.classList.remove("btn__clicked");
       // Reset button content
-      btnAddToCart.innerHTML = `
-        <img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
-        <span>Add to Cart</span>
-      `;
+      btnAddToCart.innerHTML = this._addToCartHTML;
     }
   }
 
   updateAllButtons() {
     document.querySelectorAll(".btn__add").forEach((btn) => {
       btn.classList.remove("btn__clicked");
-      btn.innerHTML = `
-      <img src="assets/images/icon-add-to-cart.svg" alt="Add To cart" />
-      <span>Add to Cart</span>
-    `;
+      btn.innerHTML = this._addToCartHTML;
     });
   }
 
@@ -64,18 +64,18 @@ class ShoppingCartView extends View {
 
   _generateMarkup() {
     if (!this._data || this._data.length === 0) {
-      document.querySelector(".orders").classList.add("hidden");
-      document.querySelector(".cart__none").classList.remove("hidden");
-      document.querySelector(".cart--quantity").textContent = 0;
+      this._orders.classList.add("hidden");
+      this._cartNone.classList.remove("hidden");
+      this._cartQuantity.textContent = 0;
       return `
         <img src="assets/images/illustration-empty-cart.svg" alt="Empty cart image" />
         <p class="cart__empty">Your added items will appear here</p>
       `;
     }
 
-    document.querySelector(".orders").classList.remove("hidden");
-    document.querySelector(".cart__none").classList.add("hidden");
-    document.querySelector(".cart--quantity").textContent = this._data.length;
+    this._orders.classList.remove("hidden");
+    this._cartNone.classList.add("hidden");
+    this._cartQuantity.textContent = this._data.length;
     this._clear();
 
     return `
